@@ -1,5 +1,81 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
+const testimonialsSection = document.querySelector('.testimonials-section');
+const processSection = document.querySelector('.process-section');
+
+if (testimonialsSection && processSection) {
+  processSection.before(testimonialsSection);
+}
+
+const testimonialCarousel = document.querySelector('[data-testimonial-carousel]');
+
+if (testimonialCarousel) {
+  const testimonialTrack = testimonialCarousel.querySelector('.testimonial-track');
+  const clicknartSlide = [...testimonialCarousel.querySelectorAll('.testimonial-slide')].find((slide) => slide.querySelector('cite')?.textContent.trim() === 'clicknart');
+  if (testimonialTrack && clicknartSlide) testimonialTrack.prepend(clicknartSlide);
+}
+
+if (testimonialCarousel) {
+  const track = testimonialCarousel.querySelector('.testimonial-track');
+  const slides = [...testimonialCarousel.querySelectorAll('.testimonial-slide')];
+  const previousButton = testimonialCarousel.querySelector('[data-testimonial-prev]');
+  const nextButton = testimonialCarousel.querySelector('[data-testimonial-next]');
+  const dotsContainer = testimonialCarousel.querySelector('[data-testimonial-dots]');
+  let currentIndex = 0;
+
+  const getVisibleCount = () => {
+    if (window.matchMedia('(max-width: 760px)').matches) return 1;
+    if (window.matchMedia('(max-width: 980px)').matches) return 2;
+    return 3;
+  };
+
+  const renderDots = (pageCount) => {
+    dotsContainer.innerHTML = '';
+    for (let index = 0; index < pageCount; index += 1) {
+      const dot = document.createElement('button');
+      dot.className = 'testimonial-dot';
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Show testimonial group ${index + 1}`);
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+      dotsContainer.append(dot);
+    }
+  };
+
+  const updateCarousel = () => {
+    const visibleCount = getVisibleCount();
+    const lastIndex = Math.max(0, slides.length - visibleCount);
+    currentIndex = Math.min(currentIndex, lastIndex);
+    track.style.setProperty('--carousel-index', currentIndex);
+    previousButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex === lastIndex;
+    [...dotsContainer.children].forEach((dot, index) => {
+      dot.classList.toggle('is-active', index === currentIndex);
+      dot.setAttribute('aria-current', index === currentIndex ? 'true' : 'false');
+    });
+  };
+
+  const rebuildControls = () => {
+    const pageCount = Math.max(1, slides.length - getVisibleCount() + 1);
+    renderDots(pageCount);
+    updateCarousel();
+  };
+
+  previousButton.addEventListener('click', () => {
+    currentIndex -= 1;
+    updateCarousel();
+  });
+
+  nextButton.addEventListener('click', () => {
+    currentIndex += 1;
+    updateCarousel();
+  });
+
+  window.addEventListener('resize', rebuildControls);
+  rebuildControls();
+}
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener('click', () => {
