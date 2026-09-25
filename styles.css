@@ -60,6 +60,8 @@ h3 { margin-bottom: 12px; font-size: 1.25rem; line-height: 1.2; }
 .process-number { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; margin: 0 auto 28px; border-radius: 50%; background: #eeeeeb; color: var(--ink); font-size: .78rem; font-weight: 700; }
 .process-step p { max-width: 310px; margin-right: auto; margin-left: auto; color: var(--muted); font-size: .95rem; }
 .card { display: flex; flex-direction: column; min-height: 310px; padding: 28px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+.service-card-link { color: inherit; text-decoration: none; transition: border-color .2s, transform .2s; }
+.service-card-link:hover { border-color: #a7a7a1; transform: translateY(-2px); }
 .card p { color: var(--muted); font-size: .95rem; }
 .price { align-self: flex-end; margin: auto 0 4px; font-size: 1.1rem; font-weight: 700; text-align: right; }
 .price-label { font-weight: 400; }
@@ -122,11 +124,14 @@ h3 { margin-bottom: 12px; font-size: 1.25rem; line-height: 1.2; }
 .page-intro h1 { max-width: 760px; margin-bottom: 18px; font-size: clamp(2.7rem, 6vw, 4.6rem); }
 .page-intro p { max-width: 570px; color: var(--muted); font-size: 1.05rem; }
 .service-list { display: grid; gap: 0; }
-.service-detail { display: grid; grid-template-columns: .65fr 1.35fr; gap: 70px; padding: 62px 0; border-bottom: 1px solid var(--line); }
+.service-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; padding: 62px 0; border-bottom: 1px solid var(--line); }
 .service-detail:first-child { padding-top: 0; }
 .service-detail:last-child { border-bottom: 0; }
+.service-image { width: 100%; aspect-ratio: 1; border-radius: 10px; object-fit: contain; }
 .service-detail h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
 .service-detail p { max-width: 600px; color: var(--muted); }
+.service-detail h3 { margin-top: 28px; font-size: 1rem; }
+.service-includes { display: grid; gap: 9px; max-width: 600px; margin: 0; padding-left: 20px; color: var(--muted); font-size: .95rem; }
 .service-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; margin-top: 24px; text-align: right; }
 .service-meta strong { font-size: 1.15rem; font-weight: 700; }
 .service-meta span { color: var(--muted); font-size: .85rem; }
@@ -195,6 +200,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #6b9b73; outline-offs
   .service-detail { padding: 42px 0; gap: 10px; }
   .service-detail:first-child { padding-top: 0; }
   .service-meta { align-items: flex-start; text-align: left; }
+  .service-image { order: -1; aspect-ratio: 1; }
   .faq-list { grid-template-columns: 1fr; }
   .faq-item summary { padding: 19px 20px; }
   .faq-item p { padding: 0 20px 19px; }
