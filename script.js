@@ -2,6 +2,25 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const testimonialsSection = document.querySelector('.testimonials-section');
 const processSection = document.querySelector('.process-section');
+const businessEmail = 'arslan@booksbyarslan.com';
+
+document.querySelectorAll('a[href^="mailto:"]').forEach((emailLink) => {
+  emailLink.href = `mailto:${businessEmail}`;
+  [...emailLink.childNodes].forEach((node) => {
+    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) node.textContent = businessEmail;
+  });
+});
+
+if (window.location.pathname.endsWith('/about.html') || window.location.pathname.endsWith('/about')) {
+  const aboutCopy = document.querySelector('.about-copy');
+  if (aboutCopy && !aboutCopy.querySelector('[data-business-email]')) {
+    const emailItem = document.createElement('p');
+    emailItem.className = 'contact-item';
+    emailItem.dataset.businessEmail = 'true';
+    emailItem.innerHTML = `<small>Email</small> <a href="mailto:${businessEmail}">${businessEmail}</a>`;
+    aboutCopy.append(emailItem);
+  }
+}
 
 if (testimonialsSection && processSection) {
   processSection.before(testimonialsSection);
