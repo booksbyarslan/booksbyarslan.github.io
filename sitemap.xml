@@ -3,7 +3,7 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://booksbyarslan.github.io/</loc>
+    <loc>https://booksbyarslan.com/</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
@@ -11,7 +11,7 @@
 
   <!-- Services Page -->
   <url>
-    <loc>https://booksbyarslan.github.io/services.html</loc>
+    <loc>https://booksbyarslan.com/services.html</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -19,7 +19,7 @@
 
   <!-- FAQ Page -->
   <url>
-    <loc>https://booksbyarslan.github.io/faq.html</loc>
+    <loc>https://booksbyarslan.com/faq.html</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -27,7 +27,7 @@
 
   <!-- About Page -->
   <url>
-    <loc>https://booksbyarslan.github.io/about.html</loc>
+    <loc>https://booksbyarslan.com/about.html</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
@@ -35,7 +35,7 @@
 
   <!-- Contact Page -->
   <url>
-    <loc>https://booksbyarslan.github.io/contact.html</loc>
+    <loc>https://booksbyarslan.com/contact.html</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.50</priority>
